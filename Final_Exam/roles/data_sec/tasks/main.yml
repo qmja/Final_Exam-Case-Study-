@@ -1,0 +1,7 @@
+  - name: Implement backup and disaster recovery mechanisms
+    template:
+      src: /home/madiane/agpaoa_ansible/Final_Exam/files/etc/backup/backup_script.j2
+      dest: /etc/cron.daily/backup_script
+      mode: 0755
+      owner: root
+      group: root

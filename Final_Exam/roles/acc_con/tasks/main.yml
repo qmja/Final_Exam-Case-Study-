@@ -1,0 +1,33 @@
+  # Configure strong access controls
+  - name: Implement password policies
+    copy:
+      src: /home/madiane/agpaoa_ansible/Final_Exam/files/etc/pass_quality/pwquality.conf
+      dest: /etc/security/pwquality.conf
+    notify: Restart the Service
+
+  - name: Restart the Service
+    systemd:
+      name: sshd
+      state: restarted
+
+  - name: Configure user authentication
+    template:
+      src: /home/madiane/agpaoa_ansible/Final_Exam/files/etc/ssh/ssh_config.j2
+      dest: /etc/ssh/sshd_config
+      mode: 0644
+      owner: root
+      group: root
+    notify: Restarting Service
+
+  - name: Restarting Service
+    systemd:
+      name: sshd
+      state: restarted
+
+  - name: Implement access control policies
+    template:
+      src: /home/madiane/agpaoa_ansible/Final_Exam/files/etc/sudoers.d/sudoers.j2
+      dest: /etc/sudoers
+      mode: 0440
+      owner: root
+      group: root

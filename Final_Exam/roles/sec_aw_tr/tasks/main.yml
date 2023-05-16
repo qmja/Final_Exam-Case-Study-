@@ -1,0 +1,13 @@
+  # Provide security awareness training
+  - name: Distribute security awareness training materials
+    copy:
+      src: /home/madiane/agpaoa_ansible/Final_Exam/files/etc/sec_aware/notice
+      dest: /home/madiane/Guidelines and Protocols/
+      mode: 0644
+      owner: root
+      group: root
+
+  - name: Restart sshd
+    service:
+      name: sshd
+      state: restarted

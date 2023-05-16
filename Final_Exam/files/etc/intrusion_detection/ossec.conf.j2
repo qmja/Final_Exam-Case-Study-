@@ -1,0 +1,26 @@
+# TPx Communications ossec configuration file
+
+<ossec_config>
+
+  <global>
+    <email_notification>yes</email_notification>
+    <email_to>admin@tpx.com</email_to>
+    <smtp_server>mail.tpx.com</smtp_server>
+    <email_from>ossec@tpx.com</email_from>
+  </global>
+
+  <rules>
+    <include>rules/bad-traffic.xml</include>
+    <include>rules/firewall-events.xml</include>
+    <include>rules/syslog_rules.xml</include>
+    <include>rules/ossec_rules.xml</include>
+  </rules>
+
+  <syslog_output>
+    <server>logserver.tpx.com</server>
+    <port>514</port>
+    <protocol>udp</protocol>
+    <format>default</format>
+  </syslog_output>
+
+</ossec_config>

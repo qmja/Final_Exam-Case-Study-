@@ -1,0 +1,7 @@
+  - name: Configure security monitoring
+    template:
+      src: /home/madiane/agpaoa_ansible/Final_Exam/files/etc/intrusion_detection/ossec.conf.j2
+      dest: /etc/ossec.conf
+      mode: 0644
+      owner: root
+      group: root

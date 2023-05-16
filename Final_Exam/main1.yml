@@ -1,0 +1,17 @@
+---
+- name: TPx Communications Security Playbook
+  hosts: all
+  become: true
+  vars:
+    firewall_port_proto:
+      - { port: 22, protocol: tcp, state: present }
+      - { port: 80, protocol: tcp, state: present }
+      - { port: 443, protocol: tcp, state: present }
+
+  roles:
+    - update
+    - acc_con
+    - network_sec
+    - data_sec
+    - sec_mon
+    - sec_aw_tr
